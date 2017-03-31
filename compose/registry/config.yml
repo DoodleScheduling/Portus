@@ -10,11 +10,14 @@ http:
     addr: 0.0.0.0:5001
 auth:
   token:
-    rootcertbundle: /etc/docker/registry/portus.crt
+     realm: http://docker.doodle.com/v2/token
+     service: docker.doodle.com:5000
+     issuer: docker.doodle.com
+     rootcertbundle: /etc/docker/registry/portus.crt
 notifications:
   endpoints:
     - name: portus
-      url: http://web:3000/v2/webhooks/events
+      url: http://docker.doodle.com/v2/webhooks/events
       timeout: 500ms
       threshold: 5
       backoff: 1s
